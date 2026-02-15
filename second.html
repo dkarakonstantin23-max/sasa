@@ -545,7 +545,6 @@
         <div class="section-block fade-in">
             <h2>Партнерство</h2>
             <p>Системне побудування бізнесу, стратегія та підтримка.</p>
-            </div>
         </div>
 
         <div class="divider-dots">◆ ◆ ◆</div>
@@ -560,7 +559,6 @@
                 </div>
                 <div class="variant-card featured">
                     <h3>VIP-клієнт</h3>
-                    <span class=""></span>
                 </div>
                 <div class="variant-card">
                     <h3>Партнер</h3>
@@ -576,7 +574,6 @@
 
             <form id="partnerForm" action="https://formspree.io/f/xbdaozdv" method="POST">
                 
-                <!-- Hidden field for form name -->
                 <input type="hidden" name="_subject" value="Нова анкета партнера - Олена Щадій">
                 
                 <!-- 1. Прізвище та ім'я -->
@@ -676,12 +673,10 @@
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Disable button and show loading
             submitBtn.disabled = true;
             btnText.innerHTML = '<span class="spinner"></span>Надсилання...';
             errorMessage.classList.remove('show');
             
-            // Get form data
             const formData = new FormData(form);
             
             try {
@@ -694,19 +689,14 @@
                 });
                 
                 if (response.ok) {
-                    // Success - hide form, show success message
                     formBlock.style.display = 'none';
                     backLink.style.display = 'none';
                     successMessage.classList.add('show');
-                    
-                    // Scroll to success message
                     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 } else {
-                    // Error from server
                     throw new Error('Server error');
                 }
             } catch (error) {
-                // Show error message
                 errorMessage.classList.add('show');
                 submitBtn.disabled = false;
                 btnText.textContent = 'Надіслати анкету';
