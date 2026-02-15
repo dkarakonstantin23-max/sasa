@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Олена Щадій — LR Leader</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Jost', sans-serif; 
+            background: #000000; 
+            color: #fff; 
+            overflow-x: hidden; 
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-wrapper { 
+            position: relative; 
+            width: 100%; 
+            max-width: 600px; 
+            margin: 0 auto; 
+        }
+        
+        .hero-image { 
+            width: 100%; 
+            display: block; 
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%); 
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%); 
+        }
+
+        .hero-header-text { 
+            position: absolute; 
+            top: 40px; 
+            left: 8%; 
+            right: 8%; 
+            z-index: 10; 
+        }
+
+        .hero-header-text .gold-italic { 
+            font-family: 'Playfair Display', serif; 
+            font-style: italic; 
+            font-weight: 700; 
+            color: #c9a962; 
+            font-size: clamp(26px, 7vw, 40px); 
+            line-height: 1.1; 
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero-header-text .white-bold { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 800; 
+            font-size: clamp(14px, 4.5vw, 24px); 
+            text-transform: uppercase; 
+            color: #fff; 
+            margin: 5px 0; 
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero-header-text .gold-sub { 
+            font-family: 'Playfair Display', serif; 
+            font-style: italic; 
+            color: #c9a962; 
+            font-size: clamp(11px, 3vw, 16px); 
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .name-plate-on-photo { 
+            position: absolute; 
+            bottom: 15%; 
+            left: 8%; 
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(20,20,20,0.95) 100%); 
+            border: 2px solid #c9a962;
+            color: #fff; 
+            padding: 15px 25px; 
+            border-radius: 12px; 
+            box-shadow: 0 8px 30px rgba(201,169,98,0.3); 
+            z-index: 12; 
+            backdrop-filter: blur(10px);
+        }
+
+        .name-plate-on-photo h2 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 800; 
+            font-size: 18px; 
+            text-transform: uppercase; 
+            color: #c9a962;
+            letter-spacing: 2px;
+        }
+
+        .name-plate-on-photo p { 
+            font-size: 10px; 
+            font-weight: 600; 
+            color: #ffffff; 
+            text-transform: uppercase; 
+            margin-top: 5px; 
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container { 
+            width: 92%; 
+            max-width: 600px; 
+            margin: 30px auto; 
+        }
+
+        /* ===== SECTION BLOCKS ===== */
+        .section-block { 
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%); 
+            border: 1px solid rgba(201,169,98,0.3);
+            border-radius: 20px; 
+            padding: 35px 30px; 
+            margin-bottom: 25px; 
+            color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #c9a962, #8a7340);
+        }
+
+        .section-block h2 { 
+            font-family: 'Great Vibes', cursive; 
+            font-weight: 400; 
+            color: #c9a962; 
+            font-size: 38px; 
+            margin-bottom: 15px; 
+        }
+
+        .section-block p { 
+            font-family: 'Jost', sans-serif;
+            font-size: 15px; 
+            line-height: 1.7; 
+            font-weight: 400; 
+            color: #c0c0c0;
+        }
+
+        .gold-badge-inline { 
+            display: inline-block; 
+            margin-top: 18px; 
+            background: linear-gradient(135deg, #c9a962, #a08339); 
+            color: #000; 
+            padding: 12px 22px; 
+            border-radius: 25px; 
+            font-weight: 700; 
+            font-size: 10px; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 20px rgba(201,169,98,0.4);
+        }
+
+        /* ===== RESULT BLOCK ===== */
+        .result-block {
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%); 
+            border: 2px solid #c9a962;
+            border-radius: 20px; 
+            padding: 35px 30px; 
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .result-block h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: #c9a962;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .result-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .result-item {
+            background: rgba(201,169,98,0.1);
+            border: 1px solid rgba(201,169,98,0.3);
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 13px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .result-item:hover {
+            background: #c9a962;
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider-dots { 
+            text-align: center; 
+            margin: -5px 0 20px; 
+            color: #c9a962; 
+            font-size: 16px; 
+            letter-spacing: 8px; 
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: 0.8s ease-out; 
+        }
+        
+        .fade-in.visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+
+        /* ===== BUTTON ===== */
+        .btn-next { 
+            display: block; 
+            width: 100%; 
+            max-width: 320px; 
+            margin: 50px auto 30px; 
+            padding: 20px 40px; 
+            background: linear-gradient(135deg, #c9a962, #a08339); 
+            border-radius: 50px; 
+            text-align: center; 
+            color: #000; 
+            font-weight: 800; 
+            font-size: 14px;
+            text-transform: uppercase; 
+            text-decoration: none;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(201,169,98,0.4); 
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .btn-next:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201,169,98,0.5);
+        }
+
+        /* ===== SOCIAL FOOTER ===== */
+        .social-footer { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            margin: 40px 0 60px; 
+        }
+
+        .social-icon { 
+            cursor: pointer; 
+            -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+            width: 55px;
+            height: 55px;
+            border: 1px solid rgba(201,169,98,0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #c9a962;
+            border-color: #c9a962;
+            transform: translateY(-3px);
+        }
+
+        .social-icon svg { 
+            width: 24px; 
+            height: 24px; 
+            fill: #c9a962; 
+            transition: fill 0.3s ease; 
+        }
+        
+        .social-icon:hover svg { 
+            fill: #000;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(201,169,98,0.2);
+            color: #555;
+            font-size: 12px;
+        }
+
+        footer span {
+            color: #c9a962;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 400px) {
+            .section-block {
+                padding: 25px 20px;
+            }
+            .section-block h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <div class="hero-wrapper">
+        <div class="hero-header-text">
+            <div class="gold-italic">Побудуй</div>
+            <div class="white-bold">МІЖНАРОДНИЙ БІЗНЕС</div>
+            <div class="gold-sub">в сфері краси та здоров'я</div>
+        </div>
+        <img src="photo.jpg" class="hero-image" alt="Олена Щадій">
+        <div class="name-plate-on-photo">
+            <h2>ОЛЕНА ЩАДІЙ</h2>
+            <p>Лідер німецької компанії LR</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <!-- ПРО МЕНЕ -->
+        <div class="section-block fade-in">
+            <h2>Про мене</h2>
+            <p>Олена Щадій — лідер німецької компанії LR. Розвиваю офіційний онлайн бізнес у 30+ країнах світу. Будую сильні команди та допомагаю жінкам виходити на новий рівень доходу та мислення.</p>
+            <div class="gold-badge-inline">Офіційний партнер LR</div>
+        </div>
+
+        <div class="divider-dots">◆ ◆ ◆</div>
+
+        <!-- ПАРТНЕРСТВО -->
+        <div class="section-block fade-in">
+            <h2>Партнерство</h2>
+            <p>Покрокове навчання, підтримка 24/7, готові інструменти для роботи, стратегія росту — все, щоб ви досягли максимальних результатів у своєму бізнесі.</p>
+        </div>
+
+        <div class="divider-dots">◆ ◆ ◆</div>
+
+        <!-- НАСТАВНИЦТВО -->
+        <div class="section-block fade-in">
+            <h2>Наставництво</h2>
+            <p>Супроводжую до результату, надихаю і підтримую на кожному кроці.</p>
+        </div>
+
+        <div class="divider-dots">◆ ◆ ◆</div>
+
+        <!-- КОМАНДА -->
+        <div class="section-block fade-in">
+            <h2>Команда</h2>
+            <p>Оточення, яке надихає. Рівень, що розкриває потенціал. Масштаб, який відкриває нові можливості.</p>
+        </div>
+
+        <div class="divider-dots">◆ ◆ ◆</div>
+
+        <!-- ЕКСПЕРТНІСТЬ -->
+        <div class="section-block fade-in">
+            <h2>Експертність</h2>
+            <p>Підбір продуктів під конкретні потреби, реальні результати та високий рівень задоволеності клієнтів.</p>
+        </div>
+
+        <div class="divider-dots">◆ ◆ ◆</div>
+
+        <!-- СПІВПРАЦЯ -->
+        <div class="section-block fade-in">
+            <h2>Співпраця</h2>
+            <p>Професійна побудова бізнесу, успішна стратегія розвитку та підтримка.</p>
+        </div>
+
+        <div class="divider-dots">◆ ◆ ◆</div>
+
+        <!-- РЕЗУЛЬТАТ -->
+        <div class="result-block fade-in">
+            <h2>Ваш результат</h2>
+            <div class="result-items">
+                <div class="result-item">Стабільний дохід</div>
+                <div class="result-item">Команда</div>
+                <div class="result-item">Сильний особистий бренд</div>
+                <div class="result-item">Впевненість у завтрашньому дні</div>
+                <div class="result-item">Внутрішня сила</div>
+                <div class="result-item">Фінансова незалежність</div>
+            </div>
+        </div>
+
+        <!-- BUTTON -->
+        <a href="second.html" class="btn-next fade-in">Далі →</a>
+        
+        <!-- SOCIAL -->
+        <div class="social-footer fade-in">
+            <a href="https://www.instagram.com/YOUR_INSTAGRAM/" class="social-icon" id="ig-link">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://t.me/YOUR_TELEGRAM" class="social-icon" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.35-.99.53-1.41.52-.46-.01-1.35-.26-2.01-.48-.81-.27-1.45-.42-1.39-.88.03-.24.36-.49 1-.74 3.91-1.7 6.52-2.82 7.83-3.37 3.71-1.55 4.48-1.82 4.99-1.83.11 0 .36.03.52.16.14.11.18.26.19.38 0 .04.01.12 0 .19z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/YOUR_FACEBOOK" class="social-icon" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2024 <span>Олена Щадій</span>. Всі права захищені.</p>
+    </footer>
+
+    <script>
+        // ===== FADE IN ANIMATION =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== INSTAGRAM MOBILE LINK =====
+        const igLink = document.getElementById('ig-link');
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const isAndroid = /Android/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            igLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (isAndroid) {
+                    window.location.href = 'intent://www.instagram.com/_u/YOUR_INSTAGRAM#Intent;scheme=https;package=com.instagram.android;end';
+                } else {
+                    window.location.href = 'instagram://user?username=YOUR_INSTAGRAM';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

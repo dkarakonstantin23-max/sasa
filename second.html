@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Співпраця — Олена Щадій</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Jost', sans-serif; 
+            background: #000000; 
+            color: #fff; 
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ===== HEADER ===== */
+        .page-header {
+            text-align: center;
+            padding: 50px 20px 30px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+            border-bottom: 1px solid rgba(201,169,98,0.2);
+        }
+
+        .page-header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            color: #c9a962;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: #888;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container { 
+            width: 92%; 
+            max-width: 550px; 
+            margin: 40px auto 60px; 
+        }
+
+        /* ===== SECTION BLOCKS ===== */
+        .section-block { 
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%); 
+            border: 1px solid rgba(201,169,98,0.3);
+            border-radius: 20px; 
+            padding: 35px 30px; 
+            margin-bottom: 25px; 
+            color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #c9a962, #8a7340);
+        }
+
+        .section-block h2 { 
+            font-family: 'Great Vibes', cursive; 
+            font-weight: 400; 
+            color: #c9a962; 
+            font-size: 38px; 
+            margin-bottom: 15px; 
+        }
+
+        .section-block p { 
+            font-family: 'Jost', sans-serif;
+            font-size: 15px; 
+            line-height: 1.7; 
+            font-weight: 400; 
+            color: #c0c0c0;
+        }
+
+        /* ===== FOR WHO LIST ===== */
+        .for-who-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .for-who-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(201,169,98,0.15);
+            font-size: 15px;
+            color: #d0d0d0;
+            transition: all 0.3s ease;
+        }
+
+        .for-who-list li:last-child {
+            border-bottom: none;
+        }
+
+        .for-who-list li:hover {
+            padding-left: 10px;
+            color: #c9a962;
+        }
+
+        .for-who-list li::before {
+            content: '◆';
+            color: #c9a962;
+            font-size: 10px;
+        }
+
+        /* ===== RESULT SECTION IN PARTNERSHIP ===== */
+        .result-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #c9a962;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .result-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .result-tag {
+            background: rgba(201,169,98,0.1);
+            border: 1px solid rgba(201,169,98,0.3);
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 13px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .result-tag:hover {
+            background: #c9a962;
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        /* ===== VARIANTS SECTION ===== */
+        .variants-block {
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+            border: 2px solid #c9a962;
+            border-radius: 25px;
+            padding: 40px 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .variants-block h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 38px;
+            color: #c9a962;
+            margin-bottom: 10px;
+        }
+
+        .variants-block .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .variants-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .variant-card {
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(201,169,98,0.3);
+            border-radius: 15px;
+            padding: 25px 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .variant-card:hover {
+            border-color: #c9a962;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(201,169,98,0.2);
+        }
+
+        .variant-card.featured {
+            background: linear-gradient(135deg, rgba(201,169,98,0.15) 0%, rgba(201,169,98,0.05) 100%);
+            border-color: #c9a962;
+        }
+
+        .variant-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #c9a962;
+        }
+
+        .variant-card.featured h3 {
+            color: #fff;
+        }
+
+        .variant-card .badge {
+            display: inline-block;
+            margin-top: 10px;
+            background: #c9a962;
+            color: #000;
+            font-size: 8px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 400px) {
+            .variants-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .variant-card {
+                padding: 20px;
+            }
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider-dots { 
+            text-align: center; 
+            margin: 25px 0; 
+            color: #c9a962; 
+            font-size: 14px; 
+            letter-spacing: 8px; 
+        }
+
+        /* ===== FORM ===== */
+        .form-block {
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+            border: 1px solid rgba(201,169,98,0.3);
+            border-radius: 25px;
+            padding: 40px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #c9a962, #a08339, #c9a962);
+        }
+
+        .form-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #c9a962;
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            color: #c9a962;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .form-group label span {
+            color: #666;
+            font-weight: 400;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(201,169,98,0.3);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 15px;
+            font-family: 'Jost', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #c9a962;
+            background: rgba(201,169,98,0.05);
+            box-shadow: 0 0 20px rgba(201,169,98,0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #555;
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23c9a962' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+        }
+
+        .form-group select option {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 500px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== SUBMIT BUTTON ===== */
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #c9a962, #a08339);
+            border: none;
+            border-radius: 50px;
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(201,169,98,0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201,169,98,0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ===== LOADING SPINNER ===== */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #000;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ===== SUCCESS MESSAGE ===== */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+            border: 2px solid #c9a962;
+            border-radius: 25px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 42px;
+            color: #c9a962;
+            margin-bottom: 15px;
+        }
+
+        .success-message p {
+            color: #888;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            border: 3px solid #c9a962;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            animation: scaleIn 0.5s ease;
+        }
+
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: #c9a962;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== ERROR MESSAGE ===== */
+        .error-message {
+            display: none;
+            background: rgba(255, 100, 100, 0.1);
+            border: 1px solid rgba(255, 100, 100, 0.3);
+            color: #ff6b6b;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* ===== BACK BUTTON ===== */
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #c9a962;
+        }
+
+        /* ===== FORM NOTE ===== */
+        .form-note {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(201,169,98,0.2);
+            color: #555;
+            font-size: 12px;
+        }
+
+        footer span {
+            color: #c9a962;
+        }
+
+        /* ===== FADE IN ===== */
+        .fade-in { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: 0.8s ease-out; 
+        }
+        
+        .fade-in.visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="page-header">
+        <h1>Співпраця</h1>
+        <p>Олена Щадій</p>
+    </div>
+
+    <!-- CONTAINER -->
+    <div class="container">
+
+        <!-- ДЛЯ КОГО? -->
+        <div class="section-block fade-in">
+            <h2>Для кого?</h2>
+            <p>Ця співпраця ідеально підходить для:</p>
+            <ul class="for-who-list">
+                <li>Мам у декреті</li>
+                <li>Власників бізнесу</li>
+                <li>Б'юті-спеціалістів</li>
+                <li>Людей з найму</li>
+                <li>Студентів</li>
+            </ul>
+        </div>
+
+        <div class="divider-dots">◆ ◆ ◆</div>
+
+        <!-- ПАРТНЕРСТВО + РЕЗУЛЬТАТ -->
+        <div class="section-block fade-in">
+            <h2>Партнерство</h2>
+            <p>Системне побудування бізнесу, стратегія та підтримка.</p>
+            
+            <div class="result-subtitle">Результат:</div>
+            <div class="result-tags">
+                <span class="result-tag">Стабільний дохід</span>
+                <span class="result-tag">Команда</span>
+                <span class="result-tag">Особистий бренд</span>
+                <span class="result-tag">Впевненість у завтрашньому дні</span>
+            </div>
+        </div>
+
+        <div class="divider-dots">◆ ◆ ◆</div>
+
+        <!-- ВАРІАНТИ -->
+        <div class="variants-block fade-in">
+            <h2>Варіанти</h2>
+            <p class="subtitle">Обери свій формат співпраці:</p>
+            <div class="variants-grid">
+                <div class="variant-card">
+                    <h3>Клієнт</h3>
+                </div>
+                <div class="variant-card featured">
+                    <h3>VIP-клієнт</h3>
+                    <span class="badge">Популярний</span>
+                </div>
+                <div class="variant-card">
+                    <h3>Партнер</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider-dots">◆ ◆ ◆</div>
+
+        <!-- FORM BLOCK -->
+        <div class="form-block fade-in" id="formBlock">
+            <div class="form-title">Заповніть анкету</div>
+
+            <form id="partnerForm" action="https://formspree.io/f/xbdaozdv" method="POST">
+                
+                <!-- Hidden field for form name -->
+                <input type="hidden" name="_subject" value="Нова анкета партнера - Олена Щадій">
+                
+                <!-- 1. Прізвище та ім'я -->
+                <div class="form-group">
+                    <label>1. Прізвище та ім'я:</label>
+                    <input type="text" name="fullname" placeholder="Ваше прізвище та ім'я" required>
+                </div>
+
+                <!-- 2. Номер телефону -->
+                <div class="form-group">
+                    <label>2. Номер телефону:</label>
+                    <input type="tel" name="phone" placeholder="+380..." required>
+                </div>
+
+                <!-- 3. Електронна адреса -->
+                <div class="form-group">
+                    <label>3. Електронна адреса:</label>
+                    <input type="email" name="email" placeholder="example@email.com" required>
+                </div>
+
+                <!-- 4. Місце роботи / Посада -->
+                <div class="form-group">
+                    <label>4. Місце роботи / Посада:</label>
+                    <input type="text" name="workplace" placeholder="Ваша поточна діяльність">
+                </div>
+
+                <!-- 5 & 6. Доходи -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>5. Поточний дохід <span>(в місяць)</span>:</label>
+                        <input type="text" name="current_income" placeholder="грн">
+                    </div>
+                    <div class="form-group">
+                        <label>6. Бажаний дохід <span>(в місяць)</span>:</label>
+                        <input type="text" name="desired_income" placeholder="грн">
+                    </div>
+                </div>
+
+                <!-- 7. Години -->
+                <div class="form-group">
+                    <label>7. Скільки годин на день можете приділяти бізнесу в партнерстві з LR?</label>
+                    <select name="hours" required>
+                        <option value="">Оберіть варіант...</option>
+                        <option value="1-2 години">1-2 години</option>
+                        <option value="2-4 години">2-4 години</option>
+                        <option value="4-6 годин">4-6 годин</option>
+                        <option value="Більше 6 годин">Більше 6 годин</option>
+                        <option value="Повна зайнятість">Повна зайнятість</option>
+                    </select>
+                </div>
+
+                <!-- SUBMIT -->
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span id="btnText">Надіслати анкету</span>
+                </button>
+
+                <!-- ERROR MESSAGE -->
+                <div class="error-message" id="errorMessage">
+                    Щось пішло не так. Спробуйте ще раз.
+                </div>
+
+                <p class="form-note">
+                    Ваші дані конфіденційні та захищені
+                </p>
+            </form>
+        </div>
+
+        <!-- SUCCESS MESSAGE -->
+        <div class="success-message" id="successMessage">
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <h3>Дякую!</h3>
+            <p>Вашу анкету успішно надіслано.<br>Я зв'яжуся з вами найближчим часом!</p>
+            <a href="index.html" class="back-link">← Повернутися на головну</a>
+        </div>
+
+        <a href="index.html" class="back-link fade-in" id="backLink">← Назад на головну</a>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2024 <span>Олена Щадій</span>. Всі права захищені.</p>
+    </footer>
+
+    <script>
+        // ===== FORM SUBMISSION WITH FORMSPREE =====
+        const form = document.getElementById('partnerForm');
+        const formBlock = document.getElementById('formBlock');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const backLink = document.getElementById('backLink');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            btnText.innerHTML = '<span class="spinner"></span>Надсилання...';
+            errorMessage.classList.remove('show');
+            
+            // Get form data
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success - hide form, show success message
+                    formBlock.style.display = 'none';
+                    backLink.style.display = 'none';
+                    successMessage.classList.add('show');
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    // Error from server
+                    throw new Error('Server error');
+                }
+            } catch (error) {
+                // Show error message
+                errorMessage.classList.add('show');
+                submitBtn.disabled = false;
+                btnText.textContent = 'Надіслати анкету';
+            }
+        });
+
+        // ===== VARIANT CARDS CLICK =====
+        document.querySelectorAll('.variant-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.variant-card').forEach(c => c.classList.remove('featured'));
+                this.classList.add('featured');
+            });
+        });
+
+        // ===== FADE IN ANIMATION =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
